@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+
+	user-select: none;
+	font-family: "Kode Mono", monospace;
+	font-optical-sizing: auto;
+	font-weight: 400;
+
+	background-color: #2a5c62;
+	color: white;
+	font-size: 26px;
+	text-align: center;
+}
+
+.main-title {
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+.length-controller {
+	display: inline-block;
+	width: 280px;
+}
+
+.btn-level {
+	display: inline-block;
+}
+.w-64 {
+	width: 4rem;
+}
+
+.timer {
+	border: 7px solid #4d8087;
+	margin: 1.5rem auto;
+	width: 270px;
+	height: 160px;
+	border-radius: 50px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#time-left {
+	font-size: 4.25rem;
+}
+
+.timer-control {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	/* font-weight: 800; */
+}
+
+button {
+	background: none;
+	color: white;
+	cursor: pointer;
+}

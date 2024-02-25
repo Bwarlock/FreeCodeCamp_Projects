@@ -1,0 +1,75 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+
+	user-select: none;
+	background-color: #c2c2d6;
+	font-family: "Kode Mono", monospace;
+	font-optical-sizing: auto;
+	font-weight: 400;
+}
+
+.calculator {
+	border: 2px solid #47476b;
+	padding: 5px;
+	background-color: black;
+	width: 320px;
+}
+
+.formulaScreen {
+	min-height: 20px;
+	font-size: 1.25rem;
+	color: orange;
+	text-align: right;
+	vertical-align: text-top;
+	line-height: 20px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.outputScreen {
+	font-size: 2rem;
+	color: white;
+	text-align: right;
+	line-height: 35px;
+}
+
+.keypad {
+	height: 360px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 1px;
+}
+
+.span-2-col {
+	grid-column-end: span 2;
+}
+.span-2-row {
+	grid-row-end: span 2;
+}
+.button {
+	color: white;
+	background-color: #4d4d4d;
+	cursor: pointer;
+}
+
+.red {
+	background-color: rgb(172, 57, 57);
+}
+
+.blue {
+	background-color: rgb(0, 68, 102);
+}
+
+.gray {
+	background-color: rgb(102, 102, 102);
+}
