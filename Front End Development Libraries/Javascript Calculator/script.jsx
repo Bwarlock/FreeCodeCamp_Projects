@@ -61,7 +61,7 @@ function MyApp() {
 				setCurrentVal("0.");
 				setFormula(frm + "0.");
 			} else {
-				setCurrentVal(frm.match(/(-?\d+\.?\d*)$/)[0] + ".");
+				setCurrentVal(curr + ".");
 				setFormula(frm + ".");
 			}
 		}
@@ -105,13 +105,12 @@ function MyApp() {
 			expression = expression
 				.replace(/x/g, "*")
 				.replace(/-/g, "-")
-				.replace("--", "-");
+				.replace("--", "+");
 			let answer = Math.round(1e12 * eval(expression)) / 1e12;
 			setCurrentVal(answer.toString());
 			setFormula(
 				expression
 					.replace(/\*/g, "⋅")
-					.replace(/-/g, "-")
 					.replace(/(x|\/|\+)-/, "$1-")
 					.replace(/^-/, "-") +
 					"=" +
