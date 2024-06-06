@@ -26,14 +26,29 @@ app.get("/", function (req, res) {
 	res.sendFile(process.cwd() + "/views/index.html");
 });
 
+app.get("/api/shorturl/:id", function (req, res) {
+	UrlShortener.findOne({ short_url: req.params.id })
+		.then((doc) => {
+			if (doc) {
+				res.redirect(301, doc.original_url);
+			} else {
+				res.json({ error: "invalid url" });
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			res.json({ error: "invalid url" });
+		});
+});
+
 // Your first API endpoint
 app.post(
 	"/api/shorturl",
 	bodyParser.urlencoded({ extended: true }),
 	function (req, res) {
 		try {
-			const url = new URL(req.body.url.toLowerCase()).hostname;
-			dns.lookup(url, (err, address, family) => {
+			const url = new URL(req.body.url.toLowerCase());
+			dns.lookup(url.hostname, (err, address, family) => {
 				if (err) {
 					console.log(err);
 					res.json({ error: "invalid url" });
@@ -62,7 +77,7 @@ app.post(
 						})
 						.catch((err) => {
 							console.error(err);
-							res.json({ error: "internal Error" });
+							res.json({ error: "invalid url" });
 						});
 				}
 			});
